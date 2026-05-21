@@ -224,7 +224,7 @@ cat_cols = [
 if cat_cols:
     st.sidebar.subheader("Category Filters")
     for col in cat_cols:
-        unique_vals = sorted(filtered_df[col].dropna().unique().tolist())
+        unique_vals = sorted(filtered_df[col].dropna().astype(str).unique().tolist())
         if len(unique_vals) > 1:
             selected = st.sidebar.multiselect(
                 col,
